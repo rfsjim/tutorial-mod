@@ -1,0 +1,12 @@
+[
+{
+  "modid": "tm",
+  "name": "Mary and James' Tutorial Mod",
+  "description": "Learning How to Build Mods",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://jimmynet.net/",
+  "authorList": [ "Dad", "Mary" ],
+  "credits": "I'd like to thank Mary.",
+}
+]
