@@ -1,0 +1,13 @@
+{
+  "itemGroup.jamesiumindustries": "Example Mod Tab",
+  "block.jamesiumindustries.example_block": "Example Block",
+  "item.jamesiumindustries.example_item": "Example Item",
+
+  "jamesiumindustries.configuration.title": "Jamesium Industries Configs",
+  "jamesiumindustries.configuration.section.jamesiumindustries.common.toml": "Jamesium Industries Configs",
+  "jamesiumindustries.configuration.section.jamesiumindustries.common.toml.title": "Jamesium Industries Configs",
+  "jamesiumindustries.configuration.items": "Item List",
+  "jamesiumindustries.configuration.logDirtBlock": "Log Dirt Block",
+  "jamesiumindustries.configuration.magicNumberIntroduction": "Magic Number Text",
+  "jamesiumindustries.configuration.magicNumber": "Magic Number"
+}
