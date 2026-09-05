@@ -1,7 +1,7 @@
 {
-  "itemGroup.jamesiumindustries": "Example Mod Tab",
-  "block.jamesiumindustries.example_block": "Example Block",
-  "item.jamesiumindustries.example_item": "Example Item",
+  "itemGroup.jamesiumindustries": "Jamesium Industries",
+  "block.jamesiumindustries.red_ore_block": "Red Ore Block",
+  "item.jamesiumindustries.magic_cube": "Magic Cube",
 
   "jamesiumindustries.configuration.title": "Jamesium Industries Configs",
   "jamesiumindustries.configuration.section.jamesiumindustries.common.toml": "Jamesium Industries Configs",

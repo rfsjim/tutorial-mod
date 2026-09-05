@@ -3,6 +3,14 @@
 Updated Minecraft tutorial using Neoforge 21.11.45
 Minecraft 1.21.11
 
+Useful Tools
+=======
+- `.\gradlew build` Build
+- `.\gradlew runClient` Run Client
+- `.\gradlew runServer` Run Server
+- `.\gradlew classes` Fast Compilation Checks
+- `.\gradlew clean` Clean Slate
+
 Installation information
 =======
 
