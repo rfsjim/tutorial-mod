@@ -21,10 +21,17 @@ public class ModModelProvider extends ModelProvider {
         BlockModelGenerators blockModels,
         ItemModelGenerators itemModels) {
 
-        blockModels.createTrivialCube(ModBlocks.RED_ORE_BLOCK.get());
+        blockModels.createTrivialCube(
+            ModBlocks.RED_ORE_BLOCK.get()
+        );
 
         itemModels.generateFlatItem(
             ModItems.MAGIC_CUBE.get(),
+            ModelTemplates.FLAT_ITEM
+        );
+
+        itemModels.generateFlatItem(
+            ModItems.PET_RABBIT_SPAWN_EGG.get(),
             ModelTemplates.FLAT_ITEM
         );
 
