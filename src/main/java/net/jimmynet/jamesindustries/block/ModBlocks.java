@@ -1,8 +1,10 @@
 package net.jimmynet.jamesindustries.block;
 
 import net.jimmynet.jamesindustries.JamesiumIndustries;
+
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.MapColor;
+
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
