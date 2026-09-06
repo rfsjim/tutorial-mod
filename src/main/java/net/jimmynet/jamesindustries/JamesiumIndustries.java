@@ -4,6 +4,7 @@ import net.jimmynet.jamesindustries.block.ModBlocks;
 import net.jimmynet.jamesindustries.datagen.ModModelProvider;
 import net.jimmynet.jamesindustries.item.ModItems;
 import net.jimmynet.jamesindustries.item.ModCreativeModeTabs;
+import net.jimmynet.jamesindustries.entity.ModEntities;
 
 import org.slf4j.Logger;
 
@@ -12,6 +13,7 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.entity.animal.rabbit.Rabbit;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -23,6 +25,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(JamesiumIndustries.MODID)
@@ -40,9 +43,6 @@ public class JamesiumIndustries {
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public JamesiumIndustries(IEventBus modEventBus, ModContainer modContainer) {
         
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
-
         // Register the Deferred Register to the mod event bus so blocks get registered
         ModBlocks.BLOCKS.register(modEventBus);
 
@@ -52,16 +52,25 @@ public class JamesiumIndustries {
         // Register the Deferred Register to the mod event bus so tabs get registered
         ModCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
 
+        // Register entities
+        ModEntities.ENTITY_TYPES.register(modEventBus);
+
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (JamesiumIndustries) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
+        // Register the commonSetup method for modloading
+        modEventBus.addListener(this::commonSetup);
 
         // Listener to run the dynamic data generation
         modEventBus.addListener(this::gatherData);
+
+        // Register the item to a creative tab
+        modEventBus.addListener(this::addCreative);
+
+        // Register rabbit entity attributes
+        modEventBus.addListener(this::registerAttributes);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -70,6 +79,13 @@ public class JamesiumIndustries {
     // Creates the data provider
     public void gatherData(GatherDataEvent.Client event) {
         event.createProvider(ModModelProvider::new);
+    }
+
+    public void registerAttributes(EntityAttributeCreationEvent event) {
+        event.put(
+            ModEntities.PET_RABBIT.get(),
+            Rabbit.createAttributes().build()
+        );
     }
 
     
