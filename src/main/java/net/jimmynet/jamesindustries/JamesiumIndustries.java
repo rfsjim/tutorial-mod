@@ -2,6 +2,7 @@ package net.jimmynet.jamesindustries;
 
 import net.jimmynet.jamesindustries.block.ModBlocks;
 import net.jimmynet.jamesindustries.datagen.ModModelProvider;
+import net.jimmynet.jamesindustries.datagen.ModRecipeProvider;
 import net.jimmynet.jamesindustries.item.ModItems;
 import net.jimmynet.jamesindustries.item.ModCreativeModeTabs;
 import net.jimmynet.jamesindustries.entity.ModEntities;
@@ -79,6 +80,7 @@ public class JamesiumIndustries {
     // Creates the data provider
     public void gatherData(GatherDataEvent.Client event) {
         event.createProvider(ModModelProvider::new);
+        event.createProvider(ModRecipeProvider.Runner::new);
     }
 
     public void registerAttributes(EntityAttributeCreationEvent event) {

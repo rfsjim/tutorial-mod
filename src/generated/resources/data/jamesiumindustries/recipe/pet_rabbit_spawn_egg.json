@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#c:eggs",
+    "#c:crops/carrot"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jamesiumindustries:pet_rabbit_spawn_egg"
+  }
+}
