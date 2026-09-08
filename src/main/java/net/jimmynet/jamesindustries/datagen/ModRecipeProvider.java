@@ -12,6 +12,8 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import net.neoforged.neoforge.common.Tags.Items;
 
@@ -24,13 +26,24 @@ public class ModRecipeProvider extends RecipeProvider  {
     @Override 
     protected void buildRecipes() {
 
-        // Shapeless for Pet Rabbit Spawn Egg
+        // Shapeless recipe for Pet Rabbit Spawn Egg
         ShapelessRecipeBuilder.shapeless(this.registries.lookupOrThrow(Registries.ITEM), RecipeCategory.MISC, ModItems.PET_RABBIT_SPAWN_EGG)
         .requires(Items.EGGS)
         .requires(Items.CROPS_CARROT)
         .unlockedBy("has_chicken_egg", this.has(Items.EGGS))
         .unlockedBy("has_carrot", this.has(Items.CROPS_CARROT))
         .save(this.output);
+
+        // Furnace recipe for smelting Red Ore into Nether Bricks
+        SimpleCookingRecipeBuilder.smelting(
+            Ingredient.of(ModItems.RED_ORE_ITEM),
+            RecipeCategory.BUILDING_BLOCKS,
+            net.minecraft.world.item.Items.NETHER_BRICK,
+            0.1f,
+            10
+        )
+        .unlockedBy("has_red_ore", this.has(ModItems.RED_ORE_ITEM))
+        .save(this.output); 
     }
 
     public static class Runner extends RecipeProvider.Runner {
