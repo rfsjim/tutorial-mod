@@ -1,5 +1,7 @@
 # Tutorial mod
 
+Using modding Minecraft as an example of how to use VS Code and learn more Java.
+
 Updated Minecraft tutorial using Neoforge 21.11.45
 Minecraft 1.21.11
 
@@ -10,6 +12,17 @@ Useful Tools
 - `.\gradlew runServer` Run Server
 - `.\gradlew classes` Fast Compilation Checks
 - `.\gradlew clean` Clean Slate
+
+VS Code IDE Commands and Navigation
+=======
+- Go to Definition put your cursor on a symbol and F12 or right click --> Go to Definition, OR Ctrl + Click a symbol (editor.action.revealDefinition)
+- Show All Symbols Ctrl+T (workbench.action.showAllSymbols)
+- Go to File..., Quick Open	Ctrl+P	(workbench.action.quickOpen) # to go to symbols, : to go to line number, @ to go to symbol in current file
+- Show Type Hierarchy Which classes extend, which classes implement, and full inheritance tree. Supertype, subtype, and subclasses
+- Ctrl+F12 — Go to Implementations show the contracts for interfaces or abstract methods
+- Shift+F12 - Find All References (editor.action.goToReferences) where does this actually get used?
+- Alt+F12 — Peek Definition - You can inspect the signature/source without abandoning your code.
+- Ctrl+Space Trigger Intellisense suggestions (editor.action.triggerSuggest)
 
 Installation information
 =======
