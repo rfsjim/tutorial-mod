@@ -3,16 +3,24 @@ package net.jimmynet.jamesindustries;
 import net.jimmynet.jamesindustries.block.ModBlocks;
 import net.jimmynet.jamesindustries.datagen.ModModelProvider;
 import net.jimmynet.jamesindustries.datagen.ModRecipeProvider;
+import net.jimmynet.jamesindustries.datagen.ModLootTableSubProvider;
 import net.jimmynet.jamesindustries.item.ModItems;
 import net.jimmynet.jamesindustries.item.ModCreativeModeTabs;
 import net.jimmynet.jamesindustries.entity.ModEntities;
+
+import java.util.List;
+import java.util.Set;
 
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.entity.animal.rabbit.Rabbit;
 
@@ -81,6 +89,19 @@ public class JamesiumIndustries {
     public void gatherData(GatherDataEvent.Client event) {
         event.createProvider(ModModelProvider::new);
         event.createProvider(ModRecipeProvider.Runner::new);
+        event.createProvider(
+            (output, lookupProvider) -> new LootTableProvider(
+                output,
+                Set.of(),
+                List.of(
+                    new LootTableProvider.SubProviderEntry(
+                        ModLootTableSubProvider::new,
+                        LootContextParamSets.EMPTY
+                    )
+                ),
+                lookupProvider
+            )
+        );
     }
 
     public void registerAttributes(EntityAttributeCreationEvent event) {
