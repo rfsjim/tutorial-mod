@@ -16,11 +16,9 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.entity.animal.rabbit.Rabbit;
 

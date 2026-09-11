@@ -1,7 +1,6 @@
 package net.jimmynet.jamesindustries.entity.passive;
 
 import net.jimmynet.jamesindustries.JamesiumIndustries;
-import net.jimmynet.jamesindustries.datagen.ModLootTableSubProvider;
 
 import net.minecraft.world.entity.animal.rabbit.Rabbit;
 import net.minecraft.world.entity.player.Player;
