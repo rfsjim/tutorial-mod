@@ -1,9 +1,14 @@
-# Tutorial mod
+# Jamesium Industries: A Minecraft Tutorial Mod
 
 Using modding Minecraft as an example of how to use VS Code and learn more Java.
 
 Updated Minecraft tutorial using Neoforge 21.11.45
 Minecraft 1.21.11
+
+Features
+=======
+- A pet rabbit that periodically gifts nuggets and gems
+- Red ore block that smelts into nether bricks 
 
 Useful Tools
 =======
