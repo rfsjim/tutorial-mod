@@ -12,6 +12,10 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
 
+/**
+ * 
+ * ModEntities provides attributes for entities
+ */
 public class ModEntities {
 
     public static final DeferredRegister.Entities ENTITY_TYPES =

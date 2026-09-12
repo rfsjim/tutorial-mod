@@ -12,21 +12,18 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModCreativeModeTabs {
 
-    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "jamesiumindustries" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = 
         DeferredRegister.create(
             Registries.CREATIVE_MODE_TAB,
             JamesiumIndustries.MODID);
 
-
-    // Creates a creative tab with the id "jamesiumindustries:example_tab" for the example item, that is placed after the combat tab
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = 
         CREATIVE_MODE_TABS.register("example_tab", () -> 
             CreativeModeTab.builder()
-            .title(Component.translatable("itemGroup.jamesiumindustries")) //The language key for the title of your CreativeModeTab
+            .title(Component.translatable("itemGroup.jamesiumindustries"))
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> ModItems.MAGIC_CUBE.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(ModItems.MAGIC_CUBE.get());// Add the example item to the tab. For your own tabs, this method is preferred over the event
+                output.accept(ModItems.MAGIC_CUBE.get());
             }).build());
 }

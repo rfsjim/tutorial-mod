@@ -17,6 +17,11 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import net.neoforged.neoforge.common.Tags.Items;
 
+/**
+ * 
+ * ModRecipeProvider Custom mod crafting, smelting, anvil, brewing, smith-ing, stonecutting, transmuting recipes,
+ * transform a set of objects into other objects 
+ */
 public class ModRecipeProvider extends RecipeProvider  {
     
     protected ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput output) {

@@ -19,21 +19,21 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 
-public class ModEvents {
+/**
+ * 
+ * ModEvents event listeners and methods
+ */
+public final class ModEvents {
 
-    public static void Runner(IEventBus modEventBus) {
+    private ModEvents() {}
 
-        // Listener to run the dynamic data generation
+    public static void registerListeners(IEventBus modEventBus) {
+
         modEventBus.addListener(ModEvents::gatherData);
-
-        // Register the item to a creative tab
         modEventBus.addListener(ModEvents::addCreative);
-
-        // Register rabbit entity attributes
         modEventBus.addListener(ModEvents::registerAttributes);
     }
 
-    // Add the red ore block item to the building blocks tab
     private static void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModItems.RED_ORE_ITEM);
@@ -43,7 +43,6 @@ public class ModEvents {
         }
     }
 
-    // Creates the data provider
     private static void gatherData(GatherDataEvent.Client event) {
         event.createProvider(ModModelProvider::new);
         event.createProvider(ModRecipeProvider.Runner::new);
@@ -62,7 +61,7 @@ public class ModEvents {
         );
     }
 
-    public static void registerAttributes(EntityAttributeCreationEvent event) {
+    private static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(
             ModEntities.PET_RABBIT.get(),
             Rabbit.createAttributes().build()

@@ -10,6 +10,10 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 
+/**
+ * 
+ * ModModelProvider Models for blocks, and items get added with this class
+ */
 public class ModModelProvider extends ModelProvider {
 
     public ModModelProvider(PackOutput output) {
