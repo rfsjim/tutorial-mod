@@ -28,7 +28,7 @@ public class PetRabbitEntity extends Rabbit {
     public PetRabbitEntity(EntityType<? extends Rabbit> entityType, Level level) {
         super(entityType, level);
 
-        this.nuggetTime = this.random.nextInt(600) + 200;
+        this.nuggetTime = this.random.nextInt(6000) + 6000;
     }
 
     @Override 
@@ -120,6 +120,6 @@ public class PetRabbitEntity extends Rabbit {
             );
         }
         
-        this.nuggetTime = this.random.nextInt(600) + 200;
+        this.nuggetTime = this.random.nextInt(6000) + 6000;
     }
 }
