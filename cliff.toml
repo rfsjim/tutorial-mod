@@ -24,19 +24,37 @@ body = """
 trim = true
 
 [git]
+processing_order = [
+    "commit_preprocessors",
+    "split_commits",
+    "conventional_commits",
+    "commit_parsers",
+    "link_parsers",
+]
+
 conventional_commits = true
 filter_unconventional = true
 
-commit_parsers = [
-    { message = "^feat", group = "Added" },
-    { message = "^fix", group = "Fixed" },
-    { message = "^perf", group = "Performance" },
-    { message = "^chore", group = "Changed" },
+commit_preprocessors = [
+    { pattern = "^Initial commit$", replace = "feat: initial commit" },
+    { pattern = "^Added inital files via upload$", replace = "feat: add initial files via upload" },
+    { pattern = "^Migrate tutorial mod from Forge 1\\.11\\.2 to Neoforge 1\\.21\\.11$", replace = "chore: migrate tutorial mod from Forge 1.11.2 to NeoForge 1.21.11" },
+    { pattern = "^Basic Block and Item with assets$", replace = "feat: add basic block and item assets" },
+    { pattern = "^Commence rewiring into logical modules$", replace = "refactor: commence rewiring into logical modules" },
+    { pattern = "^Fix Gradlew Permissions$", replace = "fix: gradlew permissions" },
+    { pattern = "^Force add missing gradle-wrapper\\.jar$", replace = "fix: add missing gradle-wrapper.jar" },
+]
 
-    { message = "^refactor", skip = true },
-    { message = "^docs", skip = true },
-    { message = "^style", skip = true },
-    { message = "^test", skip = true },
-    { message = "^ci", skip = true },
-    { message = "^build", skip = true },
+commit_parsers = [
+    { message = "(?i)^feat", group = "Added" },
+    { message = "(?i)^fix", group = "Fixed" },
+    { message = "(?i)^perf", group = "Performance" },
+    { message = "(?i)^chore", group = "Changed" },
+
+    { message = "(?i)^refactor", skip = true },
+    { message = "(?i)^doc", skip = true },
+    { message = "(?i)^style", skip = true },
+    { message = "(?i)^test", skip = true },
+    { message = "(?i)^ci", skip = true },
+    { message = "(?i)^build", skip = true },
 ]
