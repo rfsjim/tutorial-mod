@@ -1,17 +1,5 @@
 # TODO - Jamesium Industries — Project
 
-## Core mod / infrastructure
-- [ ] Test current loot/gift implementation thoroughly
-- [ ] Refactor growing bootstrap/main-class responsibilities
-- [ ] Move datagen provider wiring out of `JamesiumIndustries`
-- [ ] Consider an `event/` package as event handling grows
-
-## Datagen
-- [ ] Extract datagen registration/wiring from main mod class
-- [ ] Keep individual providers in `datagen/`
-- [ ] Centralise loot-table `ResourceKeys`/constants
-- [ ] Reduce `JamesiumIndustries` toward boring bootstrap/registration duties
-
 ## Pet Rabbit
 
 ### Mob / Pet Interaction
@@ -29,7 +17,6 @@
 - [ ] Determine whether other vanilla rabbit variants deserve corresponding transformation items
 
 ### Loot Tables / Periodic Gifts
-- [ ] Have datagen and runtime share the same `PET_RABBIT_GIFT` key
 - [ ] Tune weights/counts/drop rates after playing with it
 
 ### Seasonal Gifts
@@ -128,6 +115,10 @@ Intentionally postponded because #WORLDGEN
 - [X] Git repository
 - [X] GitHub Actions CI build
 - [X] Create milestone tags/checkpoints
+- [X] Test current loot/gift implementation thoroughly
+- [X] Refactor growing bootstrap/main-class responsibilities
+- [X] Move datagen provider wiring out of `JamesiumIndustries`
+- [X] Consider an `event/` package as event handling grows
 
 ## Basic blocks/items
 - [X] Register `RED_ORE_BLOCK`
@@ -149,6 +140,10 @@ Intentionally postponded because #WORLDGEN
 - [X] Recipe provider
 - [X] Loot-table subprovider
 - [X] All currently wired through `GatherDataEvent.Client`
+- [X] Extract datagen registration/wiring from main mod class
+- [X] Keep individual providers in `datagen/`
+- [X] Reduce `JamesiumIndustries` toward boring bootstrap/registration duties
+- [X] Centralise loot-table `ResourceKeys`/constants
 
 ## Pet Rabbit
 
@@ -200,3 +195,4 @@ Intentionally postponded because #WORLDGEN
 - [X] Spawn resulting items into world
 - [X] Confirm that rabbits really do gift nuggets and gems
 - [X] Only produce celebratory sound/particles when loot generation succeeds
+- [X] Have datagen and runtime share the same `PET_RABBIT_GIFT` key

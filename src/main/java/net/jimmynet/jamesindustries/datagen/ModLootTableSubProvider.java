@@ -2,11 +2,9 @@ package net.jimmynet.jamesindustries.datagen;
 
 import java.util.function.BiConsumer;
 
-import net.jimmynet.jamesindustries.JamesiumIndustries;
+import net.jimmynet.jamesindustries.loot.ModLootTableKeys;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -15,6 +13,10 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
+/**
+ * 
+ * ModLootTableSubProvider Custom Loot Tables
+ */
 public class ModLootTableSubProvider implements LootTableSubProvider {
     protected final HolderLookup.Provider lookupProvider;
     
@@ -24,11 +26,7 @@ public class ModLootTableSubProvider implements LootTableSubProvider {
 
     @Override
     public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> consumer) {
-        ResourceKey<LootTable> key = ResourceKey.create(
-                Registries.LOOT_TABLE,
-                Identifier.fromNamespaceAndPath(JamesiumIndustries.MODID, "pet_rabbit_gift")
-            );
-
+    
             LootTable.Builder table = LootTable.lootTable()
             .withPool(
                 LootPool.lootPool()
@@ -41,6 +39,6 @@ public class ModLootTableSubProvider implements LootTableSubProvider {
                 .add(LootItem.lootTableItem(Items.DIAMOND))
             );
         
-        consumer.accept(key, table);
+        consumer.accept(ModLootTableKeys.PET_RABBIT_GIFT, table);
     }
 }

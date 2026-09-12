@@ -1,13 +1,10 @@
 package net.jimmynet.jamesindustries.entity.passive;
 
-import net.jimmynet.jamesindustries.JamesiumIndustries;
-
 import net.minecraft.world.entity.animal.rabbit.Rabbit;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.jimmynet.jamesindustries.loot.ModLootTableKeys;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -18,6 +15,10 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.loot.LootTable;
 
+/**
+ * 
+ * PetRabbitEntity - Petting heals player and mob, mob periodically drops resource gifts
+ */
 public class PetRabbitEntity extends Rabbit {
 
     private static final long PETTING_COOLDOWN_TICKS = 200L;
@@ -97,10 +98,7 @@ public class PetRabbitEntity extends Rabbit {
 
     private void dropGift(ServerLevel serverLevel) {
 
-        ResourceKey<LootTable> lootTableId = ResourceKey.create(
-            Registries.LOOT_TABLE,
-            Identifier.fromNamespaceAndPath(JamesiumIndustries.MODID, "pet_rabbit_gift")
-        );
+        ResourceKey<LootTable> lootTableId = ModLootTableKeys.PET_RABBIT_GIFT;
 
         if (this.dropFromGiftLootTable(serverLevel, lootTableId, this::spawnAtLocation)) {
             this.playSound(
