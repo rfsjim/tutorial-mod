@@ -3,6 +3,7 @@ package net.jimmynet.jamesindustries.item;
 import net.jimmynet.jamesindustries.JamesiumIndustries;
 import net.jimmynet.jamesindustries.block.ModBlocks;
 import net.jimmynet.jamesindustries.entity.ModEntities;
+import net.jimmynet.jamesindustries.item.tools.ModToolMaterials;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -27,8 +28,19 @@ public class ModItems {
 
     public static final DeferredItem<SpawnEggItem> PET_RABBIT_SPAWN_EGG = ITEMS.registerItem(
         "pet_rabbit_spawn_egg",
-        properties -> new SpawnEggItem(
-            properties.spawnEgg(ModEntities.PET_RABBIT.get())
+        p -> new SpawnEggItem(
+            p.spawnEgg(ModEntities.PET_RABBIT.get())
+        )
+    );
+
+    public static final DeferredItem<Item> NETHER_SWORD = ITEMS.registerItem(
+        "nether_sword",
+        p -> new Item(
+            p.sword(
+                ModToolMaterials.NETHER_MATERIAL,
+                3,
+                -2
+                )
         )
     );
 

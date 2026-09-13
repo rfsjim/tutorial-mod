@@ -73,6 +73,7 @@ Intentionally postponded because #WORLDGEN
     - [ ] trapdoors
     - [ ] buttons
     - [ ] pressure plates
+    - [ ] bookshelves
     - [ ] signs, etc.
 - [ ] Make maple saplings grow
 - [ ] World generation / natural maple trees

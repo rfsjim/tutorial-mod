@@ -41,6 +41,9 @@ public final class ModEvents {
         if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
             event.accept(ModItems.PET_RABBIT_SPAWN_EGG);
         }
+        if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(ModItems.NETHER_SWORD);
+        }
     }
 
     private static void gatherData(GatherDataEvent.Client event) {

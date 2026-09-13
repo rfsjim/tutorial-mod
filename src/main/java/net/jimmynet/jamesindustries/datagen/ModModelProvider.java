@@ -39,6 +39,10 @@ public class ModModelProvider extends ModelProvider {
             ModelTemplates.FLAT_ITEM
         );
 
+        itemModels.generateFlatItem(
+            ModItems.NETHER_SWORD.get(),
+            ModelTemplates.FLAT_HANDHELD_ITEM);
+
     }
 }
 

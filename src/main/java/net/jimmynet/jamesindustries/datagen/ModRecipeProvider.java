@@ -11,6 +11,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -32,7 +33,10 @@ public class ModRecipeProvider extends RecipeProvider  {
     protected void buildRecipes() {
 
         // Shapeless recipe for Pet Rabbit Spawn Egg
-        ShapelessRecipeBuilder.shapeless(this.registries.lookupOrThrow(Registries.ITEM), RecipeCategory.MISC, ModItems.PET_RABBIT_SPAWN_EGG)
+        ShapelessRecipeBuilder.shapeless(
+            this.registries.lookupOrThrow(Registries.ITEM),
+            RecipeCategory.MISC,
+            ModItems.PET_RABBIT_SPAWN_EGG)
         .requires(Items.EGGS)
         .requires(Items.CROPS_CARROT)
         .unlockedBy("has_chicken_egg", this.has(Items.EGGS))
@@ -48,7 +52,20 @@ public class ModRecipeProvider extends RecipeProvider  {
             10
         )
         .unlockedBy("has_red_ore", this.has(ModItems.RED_ORE_ITEM))
-        .save(this.output); 
+        .save(this.output);
+        
+        ShapedRecipeBuilder.shaped(
+            this.registries.lookupOrThrow(Registries.ITEM),
+            RecipeCategory.COMBAT,
+            ModItems.NETHER_SWORD
+        )
+        .pattern(" N ")
+        .pattern(" N ")
+        .pattern(" S ")
+        .define('N', Items.BRICKS_NETHER)
+        .define('S', net.minecraft.world.item.Items.STICK)
+        .unlockedBy("has_nether_brick", this.has(Items.BRICKS_NETHER))
+        .save(this.output);
     }
 
     public static class Runner extends RecipeProvider.Runner {

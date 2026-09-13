@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "N": "#c:bricks/nether",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    " N ",
+    " N ",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "jamesiumindustries:nether_sword"
+  }
+}
