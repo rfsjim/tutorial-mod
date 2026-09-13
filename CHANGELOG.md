@@ -3,6 +3,17 @@
 All notable changes to Jamesium Industries will be documented in this file.
 
 
+## 0.2.0 - 2026-09-13
+
+
+
+### Added
+
+
+- Pet Rabbits change their variants based on supplied items, each variant spawns different items similar to a chicken laying eggs. Gold variant created with gold ingots supply gold nuggets, White variant created with iron ingots supply iron nuggets, Black variant created with coal supply coal, Brown variant created with dirt supply grass dirt or cobblestone, White Splotched variant created with flint supply flint granite or birch wood, Salt variant created with apple supplies assorted crops, Evil variant created with wither rose supplies wither skeleton skull
+
+
+
 ## 0.1.0 - 2026-09-12
 
 
