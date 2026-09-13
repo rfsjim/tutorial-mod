@@ -8,14 +8,6 @@
 - [ ] Sit/stay behaviour
 - [ ] Additional pet AI goals
 
-### Variant Changing Interactions
-- [ ] Allow offered `ItemStacks` to transform rabbit variants
-- [ ] Gold ingot → appropriate gold rabbit variant
-- [ ] Gold rabbit → influence gift production toward gold nuggets
-- [ ] Wither rose or wither skeleton skull → EVIL/Killer Bunny
-- [ ] Transformations consume the offered item
-- [ ] Determine whether other vanilla rabbit variants deserve corresponding transformation items
-
 ### Loot Tables / Periodic Gifts
 - [ ] Tune weights/counts/drop rates after playing with it
 
@@ -91,6 +83,7 @@ Intentionally postponded because #WORLDGEN
 ## Research rabbit holes deliberately deferred
 - [ ] Synched entity data when a feature actually needs client/server state synchronisation
 - [ ] Persistent custom pet state when a feature actually needs to survive save/reload
+- [ ] Persistent `nextPetTime` and/or `nuggetTime` across unload/reload of the entity
 - [ ] Ownership UUID persistence
 - [ ] More advanced AI goal architecture
 - [ ] Custom entity rendering/models
@@ -196,3 +189,11 @@ Intentionally postponded because #WORLDGEN
 - [X] Confirm that rabbits really do gift nuggets and gems
 - [X] Only produce celebratory sound/particles when loot generation succeeds
 - [X] Have datagen and runtime share the same `PET_RABBIT_GIFT` key
+
+### Variant Changing Interactions
+- [X] Allow offered `ItemStacks` to transform rabbit variants
+- [X] Gold ingot → appropriate gold rabbit variant
+- [X] Gold rabbit → influence gift production toward gold nuggets
+- [X] Wither rose or wither skeleton skull → EVIL/Killer Bunny
+- [X] Transformations consume the offered item
+- [X] Determine whether other vanilla rabbit variants deserve corresponding transformation items

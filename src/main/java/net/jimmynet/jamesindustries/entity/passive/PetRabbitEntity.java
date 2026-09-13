@@ -3,7 +3,8 @@ package net.jimmynet.jamesindustries.entity.passive;
 import net.minecraft.world.entity.animal.rabbit.Rabbit;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.jimmynet.jamesindustries.loot.ModLootTableKeys;
+import net.minecraft.world.item.Items;
+import net.jimmynet.jamesindustries.loot.PetRabbitLoot;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
@@ -23,12 +24,13 @@ public class PetRabbitEntity extends Rabbit {
 
     private static final long PETTING_COOLDOWN_TICKS = 200L;
     private long nextPetTime = 0L;
-    public int nuggetTime;
+    private static final int GIFT_INTERVAL_RANGE = 6000;
+    public int giftTime;
     
     public PetRabbitEntity(EntityType<? extends Rabbit> entityType, Level level) {
         super(entityType, level);
 
-        this.nuggetTime = this.random.nextInt(6000) + 6000;
+        this.giftTime = this.random.nextInt(GIFT_INTERVAL_RANGE) + GIFT_INTERVAL_RANGE;
     }
 
     @Override 
@@ -43,8 +45,16 @@ public class PetRabbitEntity extends Rabbit {
             }
 
             return InteractionResult.SUCCESS;
+        } else if (this.isFood(itemStack)) {
+            return super.mobInteract(player, hand);
         }
 
+        InteractionResult variantResult = interactionChangeVariant(itemStack);
+
+        if (variantResult != InteractionResult.PASS) {
+            return variantResult;
+        }
+        
         return super.mobInteract(player, hand);
     }
 
@@ -53,7 +63,7 @@ public class PetRabbitEntity extends Rabbit {
         super.aiStep();
 
         if (this.level() instanceof ServerLevel serverLevel) {
-            if (this.isAlive() && !this.isBaby() && this.getVariant() != Rabbit.Variant.EVIL && --this.nuggetTime <=0)
+            if (this.isAlive() && !this.isBaby() && --this.giftTime <=0)
             {
                 this.dropGift(serverLevel);
             }
@@ -98,7 +108,7 @@ public class PetRabbitEntity extends Rabbit {
 
     private void dropGift(ServerLevel serverLevel) {
 
-        ResourceKey<LootTable> lootTableId = ModLootTableKeys.PET_RABBIT_GIFT;
+        ResourceKey<LootTable> lootTableId = PetRabbitLoot.getLootTableForVariant(this.getVariant());
 
         if (this.dropFromGiftLootTable(serverLevel, lootTableId, this::spawnAtLocation)) {
             this.playSound(
@@ -120,6 +130,35 @@ public class PetRabbitEntity extends Rabbit {
             );
         }
         
-        this.nuggetTime = this.random.nextInt(6000) + 6000;
+        this.giftTime = this.random.nextInt(GIFT_INTERVAL_RANGE) + GIFT_INTERVAL_RANGE;
+    }
+ 
+    private InteractionResult interactionChangeVariant(ItemStack itemStack) {
+        Rabbit.Variant targetVariant;
+        
+        if (itemStack.is(Items.GOLD_INGOT)) {
+            targetVariant = Rabbit.Variant.GOLD;
+        } else if (itemStack.is(Items.IRON_INGOT)) { 
+            targetVariant = Rabbit.Variant.WHITE;
+        } else if (itemStack.is(Items.COAL)) {
+            targetVariant = Rabbit.Variant.BLACK;
+        } else if (itemStack.is(Items.DIRT)) {
+            targetVariant = Rabbit.Variant.BROWN;
+        } else if (itemStack.is(Items.FLINT)) {
+            targetVariant = Rabbit.Variant.WHITE_SPLOTCHED;
+        } else if (itemStack.is(Items.APPLE)) {
+            targetVariant = Rabbit.Variant.SALT;
+        } else if (itemStack.is(Items.WITHER_ROSE)) {
+            targetVariant = Rabbit.Variant.EVIL;
+        } else {
+            return InteractionResult.PASS;
+        }
+        
+        if (this.getVariant() == targetVariant) {
+            return InteractionResult.PASS;
+        }
+
+        this.setVariant(targetVariant);
+        return  InteractionResult.CONSUME;
     }
 }

@@ -17,5 +17,40 @@ public final class ModLootTableKeys {
         Identifier.fromNamespaceAndPath(JamesiumIndustries.MODID, "pet_rabbit_gift")
     );
 
+    public static final ResourceKey<LootTable> PET_RABBIT_GOLD = ResourceKey.create(
+        Registries.LOOT_TABLE,
+        Identifier.fromNamespaceAndPath(JamesiumIndustries.MODID, "pet_rabbit_gold")
+    );
+    
+    public static final ResourceKey<LootTable> PET_RABBIT_WHITE = ResourceKey.create(
+        Registries.LOOT_TABLE,
+        Identifier.fromNamespaceAndPath(JamesiumIndustries.MODID, "pet_rabbit_white")
+    );
+
+    public static final ResourceKey<LootTable> PET_RABBIT_BROWN = ResourceKey.create(
+        Registries.LOOT_TABLE,
+        Identifier.fromNamespaceAndPath(JamesiumIndustries.MODID, "pet_rabbit_brown")
+    );
+
+    public static final ResourceKey<LootTable> PET_RABBIT_WHITE_SPLOTCHED = ResourceKey.create(
+        Registries.LOOT_TABLE,
+        Identifier.fromNamespaceAndPath(JamesiumIndustries.MODID, "pet_rabbit_white_splotched")
+    );
+
+    public static final ResourceKey<LootTable> PET_RABBIT_BLACK = ResourceKey.create(
+        Registries.LOOT_TABLE,
+        Identifier.fromNamespaceAndPath(JamesiumIndustries.MODID, "pet_rabbit_black")
+    );
+
+    public static final ResourceKey<LootTable> PET_RABBIT_SALT = ResourceKey.create(
+        Registries.LOOT_TABLE,
+        Identifier.fromNamespaceAndPath(JamesiumIndustries.MODID, "pet_rabbit_salt")
+    );
+
+    public static final ResourceKey<LootTable> PET_RABBIT_EVIL = ResourceKey.create(
+        Registries.LOOT_TABLE,
+        Identifier.fromNamespaceAndPath(JamesiumIndustries.MODID, "pet_rabbit_evil")
+    );
+
     private ModLootTableKeys() {}
 }
